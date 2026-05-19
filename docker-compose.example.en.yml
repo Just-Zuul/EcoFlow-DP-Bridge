@@ -1,0 +1,65 @@
+# =============================================================================
+# EcoFlow DELTA Pro Bridge — Example docker-compose
+# =============================================================================
+# Copy this file to `docker-compose.yml` and adjust the values marked with
+# "# EDIT ME" to your environment. Full setup guide: README.en.md.
+# =============================================================================
+
+services:
+  dp-bridge:
+    build:
+      context: .
+      args:
+        BRIDGE_VERSION: "v4.8.0"
+    image: dp-bridge:v4.8.0
+    container_name: dp-bridge
+
+    # network_mode: host is REQUIRED — the bridge listens for incoming TCP
+    # connections from the DPs on the host's network IP. Bridged mode breaks
+    # source-IP based device identification (DEVICE_MAP).
+    network_mode: host
+    restart: unless-stopped
+
+    volumes:
+      # Translations live OUTSIDE the image so you can edit them and just
+      # restart the container — no image rebuild needed.
+      # Mount whichever languages you want available. The bridge picks the
+      # one matching $LANGUAGE below.
+      - ./translations.de.json:/app/translations.de.json:ro
+      - ./translations.en.json:/app/translations.en.json:ro
+      # Add your own here:
+      # - ./translations.fr.json:/app/translations.fr.json:ro
+
+    environment:
+      # --- Listening port -----------------------------------------------------
+      # The "official" EcoFlow cloud port is 8055. In practice (tested by the
+      # author with several DELTA Pros), however, the DPs connect to port 6500
+      # after DNS redirect — without any port mapping configured anywhere.
+      # Why exactly is unclear (firmware? cloud handshake?).
+      # If 6500 doesn't work for you, try 8055.
+      DP_LISTEN_PORT: "6500"          # EDIT ME if needed
+
+      # --- MQTT broker --------------------------------------------------------
+      MQTT_HOST: "192.168.1.100"      # EDIT ME — IP of your Mosquitto broker
+      MQTT_PORT: "1883"
+      MQTT_USER: ""                   # EDIT ME if your broker requires auth
+      MQTT_PASS: ""                   # EDIT ME
+
+      # --- Devices ------------------------------------------------------------
+      # Format: "<source-IP1>=<short-name1>|<source-IP2>=<short-name2>|..."
+      # The short name becomes the device key in Home Assistant entity IDs
+      # (e.g. dp1 → sensor.ecoflow_dp1_battery_soc). Digits in the name are
+      # used for the label ("dp1" → "EcoFlow Delta Pro 1").
+      DEVICE_MAP: "192.168.10.150=dp1|192.168.10.160=dp2"   # EDIT ME
+
+      # --- Language -----------------------------------------------------------
+      # Loads translations.<LANGUAGE>.json from /app (or TRANSLATIONS_DIR).
+      # Shipped: de, en. Own language: just create a new file.
+      # Unknown keys silently fall back to the English code defaults.
+      LANGUAGE: "en"                  # EDIT ME — de | en | <your-own-code>
+
+      # --- Tuning -------------------------------------------------------------
+      LOG_LEVEL: "INFO"               # DEBUG | INFO | WARNING | ERROR
+      POLL_INTERVAL: "5"              # seconds between polls per device
+      IDLE_TIMEOUT: "30"              # sec. without a frame → marked offline
+      BRIDGE_VERSION: "v4.8.0"

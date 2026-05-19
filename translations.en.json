@@ -1,0 +1,87 @@
+{
+  "_comment": "Friendly-name translations for the bridge. Edit + restart the container to apply. Unknown keys fall back to the code defaults (which are English, so this file is mostly redundant — kept as a template for customization).",
+
+  "sensor": {
+    "ems_battery_main_level": "Battery SOC",
+    "ems_battery_main_level_f32": "Battery SOC (Float)",
+    "ems_battery_main_voltage": "Battery Voltage",
+    "ems_battery_main_current": "Battery Current (EMS)",
+    "ems_battery_level_max": "Battery Max Limit",
+    "ems_battery_level_min": "Battery Min Limit",
+    "ems_battery_remain_charge": "Time to Full",
+    "ems_battery_remain_discharge": "Time to Empty",
+
+    "bms_battery_level": "BMS SOC",
+    "bms_battery_level_f32": "BMS SOC (Float)",
+    "bms_battery_voltage": "BMS Voltage",
+    "bms_battery_current": "BMS Current",
+    "bms_battery_temp": "BMS Temperature",
+    "bms_battery_capacity_design": "BMS Design Capacity",
+    "bms_battery_capacity_full": "BMS Capacity Full",
+    "bms_battery_capacity_remain": "BMS Capacity Remain",
+    "bms_battery_state_of_health": "BMS State of Health",
+    "bms_battery_cycles": "BMS Cycles",
+    "bms_battery_in_power": "BMS In Power",
+    "bms_battery_out_power": "BMS Out Power",
+
+    "inverter_ac_in_power": "AC In Power",
+    "inverter_ac_out_power": "AC Out Power",
+    "inverter_ac_out_voltage": "AC Out Voltage",
+    "inverter_ac_out_current": "AC Out Current",
+    "inverter_ac_in_voltage": "AC In Voltage",
+    "inverter_ac_in_current": "AC In Current",
+    "inverter_ac_out_state": "AC Out State",
+    "inverter_ac_out_xboost": "AC X-Boost",
+    "inverter_ac_out_temp": "AC Out Temp",
+    "inverter_ac_in_limit_switch": "AC In Limit Switch",
+    "inverter_ac_in_limit_max": "AC In Limit Max",
+    "inverter_ac_in_limit_custom": "AC In Limit Custom",
+
+    "mppt_dc_in_voltage": "PV Voltage",
+    "mppt_dc_in_current": "PV Current",
+    "mppt_dc_in_power": "PV Power",
+    "mppt_dc_in_type": "PV Input Type",
+    "mppt_car_out_power": "Car Out Power",
+    "mppt_car_out_state": "Car Out State",
+
+    "pd_battery_level": "PD Battery Level",
+    "pd_in_power": "PD In Power",
+    "pd_out_power": "PD Out Power",
+    "pd_beep": "PD Beep State",
+    "pd_mppt_in_energy": "PV Energy In Total",
+    "pd_ac_in_energy": "AC Energy In Total",
+    "pd_car_in_energy": "Car Energy In Total",
+    "pd_ac_out_energy": "AC Energy Out Total",
+    "pd_car_out_energy": "Car Energy Out Total",
+    "pd_usb_time": "USB Runtime",
+    "pd_typec_time": "USB-C Runtime",
+    "pd_car_out_time": "Car Out Runtime",
+    "pd_ac_out_time": "AC Out Runtime",
+    "pd_ac_in_time": "AC In Runtime",
+    "pd_car_in_time": "Car In Runtime",
+
+    "last_seen": "Last Seen"
+  },
+
+  "switch": {
+    "ac_out": "AC Output",
+    "x_boost": "X-Boost",
+    "dc_out": "DC Output (12V)",
+    "beep": "Beep"
+  },
+
+  "number": {
+    "ac_charging_limit": "AC Charging Limit",
+    "battery_level_max": "Battery Max Charge",
+    "battery_level_min": "Battery Min Discharge"
+  },
+
+  "select": {
+    "unit_timeout": "Unit Timeout",
+    "screen_timeout": "Screen Timeout"
+  },
+
+  "binary_sensor": {
+    "connected": "Connected"
+  }
+}

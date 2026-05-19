@@ -1,0 +1,87 @@
+{
+  "_comment": "Bridge friendly-name Übersetzungen. Editieren + Container-Restart genügt. Unbekannte Keys verwenden den Code-Default.",
+
+  "sensor": {
+    "ems_battery_main_level": "Akku SOC",
+    "ems_battery_main_level_f32": "Akku SOC (Float)",
+    "ems_battery_main_voltage": "Akku Spannung",
+    "ems_battery_main_current": "Akku Strom (EMS)",
+    "ems_battery_level_max": "Limit Max Ladung",
+    "ems_battery_level_min": "Limit Min Entladung",
+    "ems_battery_remain_charge": "Restzeit Laden (bis voll)",
+    "ems_battery_remain_discharge": "Restzeit Entladen (bis leer)",
+
+    "bms_battery_level": "BMS SOC",
+    "bms_battery_level_f32": "BMS SOC (Float)",
+    "bms_battery_voltage": "BMS Spannung",
+    "bms_battery_current": "BMS Strom",
+    "bms_battery_temp": "BMS Temperatur",
+    "bms_battery_capacity_design": "BMS Kapazität (Auslegung)",
+    "bms_battery_capacity_full": "BMS Kapazität (voll)",
+    "bms_battery_capacity_remain": "BMS Kapazität (Rest)",
+    "bms_battery_state_of_health": "BMS Gesundheit",
+    "bms_battery_cycles": "BMS Ladezyklen",
+    "bms_battery_in_power": "BMS Eingang Leistung",
+    "bms_battery_out_power": "BMS Ausgang Leistung",
+
+    "inverter_ac_in_power": "AC Eingang Leistung",
+    "inverter_ac_out_power": "AC Ausgang Leistung",
+    "inverter_ac_out_voltage": "AC Ausgang Spannung",
+    "inverter_ac_out_current": "AC Ausgang Strom",
+    "inverter_ac_in_voltage": "AC Eingang Spannung",
+    "inverter_ac_in_current": "AC Eingang Strom",
+    "inverter_ac_out_state": "AC Ausgang Zustand",
+    "inverter_ac_out_xboost": "AC X-Boost",
+    "inverter_ac_out_temp": "AC Ausgang Temperatur",
+    "inverter_ac_in_limit_switch": "AC Lade-Schalter (HW)",
+    "inverter_ac_in_limit_max": "AC Ladelimit (Voll)",
+    "inverter_ac_in_limit_custom": "AC Ladelimit (Profil)",
+
+    "mppt_dc_in_voltage": "PV Spannung",
+    "mppt_dc_in_current": "PV Strom",
+    "mppt_dc_in_power": "PV Leistung",
+    "mppt_dc_in_type": "PV Eingangstyp",
+    "mppt_car_out_power": "KFZ-Buchse Leistung",
+    "mppt_car_out_state": "KFZ-Buchse Zustand",
+
+    "pd_battery_level": "PD Akku-Stand",
+    "pd_in_power": "PD Eingang Leistung",
+    "pd_out_power": "PD Ausgang Leistung",
+    "pd_beep": "PD Beep",
+    "pd_mppt_in_energy": "PV Energie gesamt",
+    "pd_ac_in_energy": "AC Energie gesamt (Eingang)",
+    "pd_car_in_energy": "KFZ Energie gesamt (Eingang)",
+    "pd_ac_out_energy": "AC Energie gesamt (Ausgang)",
+    "pd_car_out_energy": "KFZ Energie gesamt (Ausgang)",
+    "pd_usb_time": "USB Laufzeit",
+    "pd_typec_time": "USB-C Laufzeit",
+    "pd_car_out_time": "KFZ-Ausgang Laufzeit",
+    "pd_ac_out_time": "AC-Ausgang Laufzeit",
+    "pd_ac_in_time": "AC-Eingang Laufzeit",
+    "pd_car_in_time": "KFZ-Eingang Laufzeit",
+
+    "last_seen": "Zuletzt gesehen"
+  },
+
+  "switch": {
+    "ac_out": "AC Ausgang",
+    "x_boost": "X-Boost",
+    "dc_out": "DC Ausgang (12V)",
+    "beep": "Signalton"
+  },
+
+  "number": {
+    "ac_charging_limit": "AC Ladelimit",
+    "battery_level_max": "Max Ladung",
+    "battery_level_min": "Min Entladung"
+  },
+
+  "select": {
+    "unit_timeout": "Auto-Aus Gerät",
+    "screen_timeout": "Auto-Aus Display"
+  },
+
+  "binary_sensor": {
+    "connected": "Verbunden"
+  }
+}
