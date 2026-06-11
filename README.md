@@ -13,6 +13,47 @@ kannst, nicht nur lesen.
 
 Kein EcoFlow-Account nötig. Keine Cloud. Alles bleibt lokal in deinem LAN.
 
+## ⚠️ Hinweis & Haftungsausschluss
+
+Dieses Repository beschreibt ausschließlich, wie ich persönlich meine EcoFlow DeltaPro mittels
+eines lokalen Containers direkt und lokal steuere und auslese.
+
+**Es handelt sich weder um eine Anleitung noch um eine Aufforderung zum Nachbau.**
+
+### Nutzung auf eigenes Risiko
+
+Wer Inhalte dieses Repositories – ganz oder in Teilen – verwendet, umsetzt, nachbaut oder
+anderweitig nutzt, tut dies **ausschließlich auf eigene Gefahr und eigenes Risiko**.
+Von jeder Person, die diese Inhalte verwendet, wird vorausgesetzt, dass sie über das
+notwendige Grundlagenwissen sowie den jeweils geltenden gesetzlichen Vorschriften verfügt.
+
+### Haftungsausschluss
+
+Der Autor übernimmt **keinerlei Haftung** für:
+
+- Schäden an Personen, Tieren oder Sachen
+- Schäden an Geräten, Anlagen oder der Elektroinstallation
+- Datenverluste oder Fehlfunktionen
+- Folgeschäden jeglicher Art
+- Verstöße gegen Hersteller-Garantiebedingungen oder Zertifizierungen
+- Verstöße gegen gesetzliche Vorschriften oder Normen
+
+Dies gilt unabhängig davon, ob Schäden durch direkte Nutzung, Modifikation oder fehlerhafte
+Umsetzung der hier beschriebenen Methoden entstehen.
+
+### Keine Gewährleistung
+
+Die hier bereitgestellten Informationen werden **ohne jegliche Gewährleistung** bereitgestellt –
+weder ausdrücklich noch stillschweigend. Es wird keine Garantie für Richtigkeit,
+Vollständigkeit, Aktualität oder Funktionsfähigkeit übernommen.
+
+### Marken & Drittanbieter
+
+EcoFlow und DeltaPro sind eingetragene Marken der EcoFlow Technology Inc. Dieses Projekt
+steht in keiner Verbindung zu EcoFlow und wird von EcoFlow weder unterstützt noch genehmigt.
+
+---
+
 > **Status:** Im Produktivbetrieb getestet mit 3× DELTA Pro,
 > 24/7 ohne Eingriff. Multi-Language-Support für die Friendly Names
 > in Home Assistant.
@@ -215,7 +256,7 @@ mitschnüffeln, ob die DPs ihre EcoFlow-Anfragen wirklich dort stellen.
 ```bash
 git clone <dieses-repo>
 cd ecoflow-dp-bridge
-cp docker-compose.example.yml docker-compose.yml
+cp docker-compose.example.de.yml docker-compose.yml
 ```
 
 Editiere `docker-compose.yml` — jeder Wert, den du ändern musst, ist
@@ -237,7 +278,7 @@ docker compose logs -f dp-bridge
 Du solltest sehen:
 
 ```
-DP-Bridge v4.8.0 starting:
+DP-Bridge v4.8.1 starting:
   listen=:6500  mqtt=192.168.1.100:1883
   devices (2):
     dp1  (EcoFlow Delta Pro 1)  ip=192.168.10.150  id=ecoflow_dp1
@@ -282,7 +323,7 @@ Alle Einstellungen via Environment-Variablen auf dem Container.
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR`. |
 | `POLL_INTERVAL` | `5` | Sek. zwischen Poll-Runden pro Gerät. |
 | `IDLE_TIMEOUT` | `30` | Sek. ohne Frame, bis das Gerät offline gemeldet wird. |
-| `BRIDGE_VERSION` | `v4.8.0` | Kosmetik, wird im MQTT-Device-Info angezeigt. |
+| `BRIDGE_VERSION` | `v4.8.1` | Kosmetik, wird im MQTT-Device-Info angezeigt. |
 
 ---
 

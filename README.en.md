@@ -13,6 +13,46 @@ not just read it.
 
 No EcoFlow account needed. No cloud. Everything stays local in your LAN.
 
+## ⚠️ Notice & Disclaimer
+
+This repository solely describes how I personally control and read out my own EcoFlow DeltaPro
+locally and directly by means of a local container.
+
+**It is neither a guide nor an invitation to replicate this setup.**
+
+### Use at your own risk
+
+Anyone who uses, implements, replicates or otherwise makes use of the contents of this
+repository – in whole or in part – does so **entirely at their own risk and on their own
+responsibility**. Every person using these contents is assumed to possess the necessary
+fundamental knowledge as well as an awareness of the applicable legal regulations.
+
+### Limitation of liability
+
+The author assumes **no liability whatsoever** for:
+
+- Harm to people, animals or property
+- Damage to devices, installations or the electrical system
+- Data loss or malfunctions
+- Consequential damages of any kind
+- Violations of manufacturer warranty terms or certifications
+- Violations of legal regulations or standards
+
+This applies regardless of whether damage arises from direct use, modification or faulty
+implementation of the methods described here.
+
+### No warranty
+
+The information provided here is supplied **without any warranty** – neither express nor
+implied. No guarantee is given as to correctness, completeness, timeliness or functionality.
+
+### Trademarks & third parties
+
+EcoFlow and DeltaPro are registered trademarks of EcoFlow Technology Inc. This project is
+not affiliated with EcoFlow and is neither endorsed nor approved by EcoFlow.
+
+---
+
 > **Status:** Battle-tested in production with 3× DELTA Pro, 24/7
 > without intervention. Multi-language support for the friendly names
 > in Home Assistant.
@@ -210,7 +250,7 @@ port 53` on the DNS host and verify the DPs really query there.
 ```bash
 git clone <this-repo>
 cd ecoflow-dp-bridge
-cp docker-compose.example.yml docker-compose.yml
+cp docker-compose.example.en.yml docker-compose.yml
 ```
 
 Edit `docker-compose.yml` — every value you need to change is marked
@@ -232,7 +272,7 @@ docker compose logs -f dp-bridge
 You should see:
 
 ```
-DP-Bridge v4.8.0 starting:
+DP-Bridge v4.8.1 starting:
   listen=:6500  mqtt=192.168.1.100:1883
   devices (2):
     dp1  (EcoFlow Delta Pro 1)  ip=192.168.10.150  id=ecoflow_dp1
@@ -276,7 +316,7 @@ All settings via environment variables on the container.
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR`. |
 | `POLL_INTERVAL` | `5` | Seconds between poll rounds per device. |
 | `IDLE_TIMEOUT` | `30` | Seconds without a frame before the device is marked offline. |
-| `BRIDGE_VERSION` | `v4.8.0` | Cosmetic, shown in MQTT device info. |
+| `BRIDGE_VERSION` | `v4.8.1` | Cosmetic, shown in MQTT device info. |
 
 ---
 

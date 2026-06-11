@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EcoFlow Delta Pro Bridge v4.8.0
+EcoFlow Delta Pro Bridge v4.8.1
 ===============================
 Lauscht auf TCP:6500, dekodiert aa02-Frames der DP, publiziert Werte +
 HA-Discovery für Sensoren UND steuerbare Switches/Numbers/Selects.
@@ -59,7 +59,7 @@ MQTT_PASS      = os.environ.get('MQTT_PASS', '')
 LOG_LEVEL      = os.environ.get('LOG_LEVEL', 'INFO').upper()
 POLL_INTERVAL  = int(os.environ.get('POLL_INTERVAL', '5'))
 IDLE_TIMEOUT   = int(os.environ.get('IDLE_TIMEOUT', '30'))   # Sek. ohne Frame → availability=offline
-BRIDGE_VERSION = os.environ.get('BRIDGE_VERSION', 'v4.8.0')
+BRIDGE_VERSION = os.environ.get('BRIDGE_VERSION', 'v4.8.1')
 PRODUCT_ID     = 14  # Delta Pro
 DESIGN_CAPACITY_MAH = 80000  # DP1: 80.000 mAh laut Hersteller-Datenblatt — Basis für SOH-Berechnung
 
@@ -626,6 +626,15 @@ def handle_frame(mq: mqtt.Client, dev_name: str, frame: bytes):
                 # umgedreht meldet (0=an, 1=aus). Topic zeigt danach intuitiv 1=an, 0=aus.
                 if isinstance(v, (int, bool)):
                     v = 1 - int(v)
+            # Plausibilitätsfilter: battery_level_max meldet beim Aufwachen der DP kurz 0.
+            # 0 liegt außerhalb der HW-Range 50–100; die HA-number verwirft den State dann
+            # mit einer Warnung (number.py: "Invalid value ..."). Daher diesen Ausreißer
+            # gar nicht erst publishen — das Topic behält seinen letzten gültigen Wert,
+            # bis der echte EMS-Wert nachkommt. (battery_level_min braucht das nicht: dort
+            # ist 0 ein gültiger Wert innerhalb der Range 0–30.)
+            if grp['topic'] == 'ems' and field == 'battery_level_max' \
+                    and not (isinstance(v, (int, float)) and 50 <= v <= 100):
+                continue
             payload = value_to_str(v)
             tolerance = TOLERANCE_BY_UNIT.get(unit) if unit else None
             publish_changed(mq, dev_name,
