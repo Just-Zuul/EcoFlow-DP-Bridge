@@ -10,8 +10,8 @@ services:
     build:
       context: .
       args:
-        BRIDGE_VERSION: "v4.8.1"
-    image: dp-bridge:v4.8.1
+        BRIDGE_VERSION: "v4.9.0"
+    image: dp-bridge:v4.9.0
     container_name: dp-bridge
 
     # network_mode: host ist PFLICHT — die Bridge lauscht auf eingehende
@@ -62,4 +62,4 @@ services:
       LOG_LEVEL: "INFO"               # DEBUG | INFO | WARNING | ERROR
       POLL_INTERVAL: "5"              # Sekunden zwischen Polls pro Gerät
       IDLE_TIMEOUT: "30"              # Sek. ohne Frame → wird offline gemeldet
-      BRIDGE_VERSION: "v4.8.1"
+      BRIDGE_VERSION: "v4.9.0"

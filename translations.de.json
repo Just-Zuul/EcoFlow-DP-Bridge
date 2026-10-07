@@ -21,6 +21,12 @@
     "bms_battery_capacity_remain": "BMS Kapazität (Rest)",
     "bms_battery_state_of_health": "BMS Gesundheit",
     "bms_battery_cycles": "BMS Ladezyklen",
+    "bms_battery_voltage_max": "BMS Zellspannung max",
+    "bms_battery_voltage_min": "BMS Zellspannung min",
+    "bms_battery_temp_max": "BMS Zelltemperatur max",
+    "bms_battery_temp_min": "BMS Zelltemperatur min",
+    "bms_battery_mos_temp_max": "BMS MOSFET-Temperatur max",
+    "bms_battery_mos_temp_min": "BMS MOSFET-Temperatur min",
     "bms_battery_in_power": "BMS Eingang Leistung",
     "bms_battery_out_power": "BMS Ausgang Leistung",
 

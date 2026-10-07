@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-ARG BRIDGE_VERSION="v4.8.1"
+ARG BRIDGE_VERSION="v4.9.0"
 LABEL org.opencontainers.image.version="${BRIDGE_VERSION}"
 LABEL org.opencontainers.image.title="EcoFlow DELTA Pro Bridge"
 LABEL org.opencontainers.image.description="Local TCP→MQTT bridge for EcoFlow DELTA Pro (aa02 protocol)"

@@ -272,14 +272,14 @@ docker compose logs -f dp-bridge
 You should see:
 
 ```
-DP-Bridge v4.8.1 starting:
+DP-Bridge v4.9.0 starting:
   listen=:6500  mqtt=192.168.1.100:1883
   devices (2):
     dp1  (EcoFlow Delta Pro 1)  ip=192.168.10.150  id=ecoflow_dp1
     dp2  (EcoFlow Delta Pro 2)  ip=192.168.10.160  id=ecoflow_dp2
 loaded 64 translations from /app/translations.en.json (LANGUAGE=en)
 MQTT connected to 192.168.1.100:1883
-HA-Discovery: 2 devices × 41 sensors, 4 switches, 3 numbers, 2 selects
+HA-Discovery: 2 devices × 59 sensors, 4 switches, 3 numbers, 2 selects
 Listening on 0.0.0.0:6500
 ```
 
@@ -316,7 +316,7 @@ All settings via environment variables on the container.
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR`. |
 | `POLL_INTERVAL` | `5` | Seconds between poll rounds per device. |
 | `IDLE_TIMEOUT` | `30` | Seconds without a frame before the device is marked offline. |
-| `BRIDGE_VERSION` | `v4.8.1` | Cosmetic, shown in MQTT device info. |
+| `BRIDGE_VERSION` | `v4.9.0` | Cosmetic, shown in MQTT device info. |
 
 ---
 

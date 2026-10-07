@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EcoFlow Delta Pro Bridge v4.8.1
+EcoFlow Delta Pro Bridge v4.9.0
 ===============================
 Lauscht auf TCP:6500, dekodiert aa02-Frames der DP, publiziert Werte +
 HA-Discovery für Sensoren UND steuerbare Switches/Numbers/Selects.
@@ -59,7 +59,7 @@ MQTT_PASS      = os.environ.get('MQTT_PASS', '')
 LOG_LEVEL      = os.environ.get('LOG_LEVEL', 'INFO').upper()
 POLL_INTERVAL  = int(os.environ.get('POLL_INTERVAL', '5'))
 IDLE_TIMEOUT   = int(os.environ.get('IDLE_TIMEOUT', '30'))   # Sek. ohne Frame → availability=offline
-BRIDGE_VERSION = os.environ.get('BRIDGE_VERSION', 'v4.8.1')
+BRIDGE_VERSION = os.environ.get('BRIDGE_VERSION', 'v4.9.0')
 PRODUCT_ID     = 14  # Delta Pro
 DESIGN_CAPACITY_MAH = 80000  # DP1: 80.000 mAh laut Hersteller-Datenblatt — Basis für SOH-Berechnung
 
@@ -257,6 +257,12 @@ DISCOVERY_MAP = [
         ('battery_capacity_remain', 'BMS Capacity Remain',  'mAh', None,          'measurement',       'mdi:battery-50',      None),
         ('battery_state_of_health', 'BMS State of Health',  '%',   None,          'measurement',       'mdi:heart-pulse',     None),
         ('battery_cycles',          'BMS Cycles',           None,  None,          'total_increasing',  'mdi:counter',    None),
+        ('battery_voltage_max',     'BMS Cell Voltage Max', 'V',   'voltage',     'measurement',       None, None),
+        ('battery_voltage_min',     'BMS Cell Voltage Min', 'V',   'voltage',     'measurement',       None, None),
+        ('battery_temp_max',        'BMS Cell Temp Max',    '°C',  'temperature', 'measurement',       None, None),
+        ('battery_temp_min',        'BMS Cell Temp Min',    '°C',  'temperature', 'measurement',       None, None),
+        ('battery_mos_temp_max',    'BMS MOSFET Temp Max',  '°C',  'temperature', 'measurement',       None, None),
+        ('battery_mos_temp_min',    'BMS MOSFET Temp Min',  '°C',  'temperature', 'measurement',       None, None),
         ('battery_in_power',        'BMS In Power',         'W',   'power',       'measurement',       None, 'signed32'),
         ('battery_out_power',       'BMS Out Power',        'W',   'power',       'measurement',       None, 'signed32'),
     ]},
